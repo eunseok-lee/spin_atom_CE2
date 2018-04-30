@@ -1,7 +1,7 @@
 ##########################################################
 Spin-Atom Cluster Expansion for quaternary alloys
 written by Eunseok Lee
-v1: Apr 17, 2018
+Apr 17, 2018
 ##########################################################
 
 This computational package is to perform spin-atom cluster expansion (CE) for quaternary alloys. The cluster functions are formulated from the coupled configuration of atomic species and magnetic moment at each lattice site. For further information, refer to Physical Review B 95, 085134 (2017). In addition, k-NN machine learning algorithm for anomaly detection is implemented into data regularization process.
@@ -23,6 +23,6 @@ Although the sub-programs 2~4 will be compiled by mpicc, they can run on single-
 
 To compile each sub-program, move in the src_(sub-program) and follow the direction in README there.
 
-This version 2 targeted R-3m space group materials, such as the layered LixNiyMnzO2 (x+y+z<2) allowing Li-rich configurations. Each cationic lattice site is be occupied by any of Li, Va, Ni, or Mn (quaternary compounds in terms of DOF) and can have any of up-, down-, and zero-magnetic moment. Hence, the total degrees of freedom (DOF) is 4x3=12.
+This version targeted R-3m space group materials, such as the layered LixNiyMnzO2 (x+y+z<2) allowing Li-rich configurations. Each cationic lattice site is be occupied by any of Li, Va, Ni, or Mn (quaternary compounds in terms of DOF) and can have any of up-, down-, and zero-magnetic moment. Hence, the total degrees of freedom (DOF) is 4x3=12.
 
 Although they developed for the layered LixNiyMnzO2 (x+y+z<2), the sub-programs 2~4 can also be applied for any material system with 4x3 DOF at each lattice site if the classification of cluster functions and mapping from atomic clusters to cluster function are provided.
