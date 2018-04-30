@@ -1,0 +1,28 @@
+##########################################################
+# Spin-Atom Cluster Expansion for quaternary alloys
+# written by Eunseok Lee
+# v1: Apr 17, 2018 
+##########################################################
+
+This computational package is to perform spin-atom cluster expansion (CE) for quaternary alloys. The cluster functions are formulated from the coupled configuration of atomic species and magnetic moment at each lattice site. For further information, refer to Physical Review B 95, 085134 (2017). In addition, k-NN machine learning algorithm for anomaly detection is implemented into data regularization process.
+
+The package consists of four sub-programs, listed in the following list. Each program can run independently if all required parameters are provided correctly.
+
+1) clusterlist: formulate the clusters and cluster functions based on the geometrical information of lattice site.
+2) data_to_corr_mat: convert the coupled configuration of atomic species and magnetic moment to the correlation matrix of CE.
+3) findcluster: select the most representative cluster functions (expansion basis) and the corresponding effective cluster interactions (expansion coefficient).
+4) predictstructure_ce: predict the lowest energy structure using the result of sub-program 3.
+
+The every code is written in C. The most time consuming part of the package comes from the calculation of the correlation matrix. Hence, sub-programs 2, 3, and 4 are developed in parallel version, using MPI. Sub-program 1 is light and serial version. 
+
+GNU Scientific Library (GSL) was used in multiple parts of the package and hence the installation of GSL is pre-requisite for compilation (refer to https://www.gnu.org/software/gsl/ for further information).
+
+Requirement: mpicc, GSL
+
+Although the sub-programs 2~4 will be compiled by mpicc, they can run on single-cpu.
+
+To compile each sub-program, move in the src_(sub-program) and follow the direction in README there.
+
+This version 2 targeted R-3m space group materials, such as the layered LixNiyMnzO2 (x+y+z<2) allowing Li-rich configurations. Each cationic lattice site is be occupied by any of Li, Va, Ni, or Mn (quaternary compounds in terms of DOF) and can have any of up-, down-, and zero-magnetic moment. Hence, the total degrees of freedom (DOF) is 4x3=12.
+
+Although they developed for the layered LixNiyMnzO2 (x+y+z<2), the sub-programs 2~4 can also be applied for any material system with 4x3 DOF at each lattice site if the classification of cluster functions and mapping from atomic clusters to cluster function are provided.
