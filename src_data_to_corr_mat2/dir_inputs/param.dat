@@ -1,0 +1,11 @@
+np			24
+neighbor_num		22
+ncluster1		1
+ncluster2		6
+ncluster3		21
+ndata			35
+near_convh_cutoff	1.0
+# anomaly detection parameters
+use_anomaly_detection	0
+anomaly_score_crit	1.0
+knn			5
